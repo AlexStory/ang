@@ -1,44 +1,44 @@
 <!doctype html>
-<html lang="en-US" ng-app="myTodoApp">
+<html lang="en-US" ng-app="myAddressBook">
 <head>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Todo App</title>
+  <title>My Awesome Address Book</title>
 </head>
 <body>
 
-  <div class="container-fluid text-center" ng-controller="TodoController as todoctrl">
-    <h1>My Todos</h1>
-    <form name="myForm" novalidate ng-submit="myForm.$valid && todoctrl.addNewTask()" class="clearfix " id="daform">
+  <div class="container-fluid text-center" ng-controller="AddressController as addressctrl">
+    <h1>My Awesome Address Book</h1>
+    <form name="myForm" novalidate ng-submit="myForm.$valid && addressctrl.addNewContact()" class="clearfix " id="daform">
       <div class="col-xs-3">
-        <input type="text" class="form-control" ng-model="todoctrl.newTask.name" placeholder="Name" required/>
+        <input type="text" class="form-control" ng-model="addressctrl.newContact.name" placeholder="Name" required/>
       </div>
       <div class="col-xs-3">
-      <input type="text" class="form-control" placeholder="Description" ng-model="todoctrl.newTask.desc" required/>
+      <input type="text" class="form-control" placeholder="Address" ng-model="addressctrl.newContact.address"/>
     </div>
-    <div class="col-xs-4">
-      <input type="date" class="form-control" ng-model="todoctrl.newTask.due" required/>
+    <div class="col-xs-3">
+      <input type="number" class="form-control" placeholder="Number" ng-model="addressctrl.newContact.number"/>
     </div>
-      <input type="submit" value="Add Task" ng-disabled="myForm.$invalid" class="btn btn-primary"></input>
+      <input type="submit" value="Add Contact" ng-disabled="myForm.$invalid" class="btn btn-primary col-xs-2" ></input>
     </form>
   <table class="table-striped myT">
     <thead>
       <tr>
-        <th>Task Name:</th>
-        <th>Task Description:</th>
-        <th>Due Date:</th>
-        <th>Remove Task: </th>
+        <th>Contact Name:</th>
+        <th>Address:</th>
+        <th>Number:</th>
+        <th>Remove Contact: </th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="task in todoctrl.tasks">
-        <td>{{task.name}}</td>
-        <td>{{task.desc}}</td>
-        <td>{{task.due | date}}</td>
-        <td><button ng-click="todoctrl.removeTodo(task)" class="btn btn-default">remove</button></td>
+      <tr ng-repeat="contact in addressctrl.contacts">
+        <td>{{contact.name}}</td>
+        <td>{{contact.address}}</td>
+        <td>{{contact.number}}</td>
+        <td><button ng-click="addressctrl.removeContact(contact)" class="btn btn-default">remove</button></td>
       </tr>
     </tbody>
   </table>

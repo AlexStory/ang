@@ -2,32 +2,32 @@ var ng = angular
 ;(function(){
   'use strict';
 
-  ng.module('myTodoApp', [])
-    .controller('TodoController', function(){
+  ng.module('myAddressBook', [])
+    .controller('AddressController', function(){
       var vm = this;
-      vm.tasks = [
+      vm.contacts = [
         {
-          name: 'Learn Angular',
-          desc: 'If I could learn Angular I\'d be sooo happy',
-          due: 'today'
+          name: 'Jenny',
+          address: 'The Block',
+          number: '867-5309'
         }, {
-          name: 'Finish Tic-Tac-Toe',
-          desc: 'Firebase AAARRRRGGHHH',
-          due: 'Monday'
+          name: 'Batman',
+          address: 'Batcave, Gotham',
+          number: 'Bat-signal'
         }, {
-          name: 'Get A Job',
-          desc: 'Get dat money',
-          due: 'April 2015'
+          name: 'Superman',
+          address: 'Chamber of Solitude, North Pole',
+          number: 'superhearing'
         }
       ];
-      vm.addNewTask = function(){
-        vm.tasks.push(vm.newTask);
-        vm.newTask = null;
+      vm.addNewContact = function(){
+        vm.contacts.push(vm.newContact);
+        vm.newContact = null;
       }
 
-      vm.removeTodo = function(task){
-        var i = vm.tasks.indexOf(task);
-        vm.tasks.splice(i,1);
+      vm.removeContact = function(contact){
+        var i = vm.contacts.indexOf(contact);
+        vm.contacts.splice(i,1);
       }
 
     });
