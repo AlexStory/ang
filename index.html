@@ -12,7 +12,7 @@
 
   <div class="container-fluid text-center" ng-controller="AddressController as addressctrl">
     <h1>My Awesome Address Book</h1>
-    <form name="myForm" novalidate ng-submit="myForm.$valid && addressctrl.addNewContact()" class="clearfix " id="daform">
+    <form name="myForm" novalidate ng-submit="myForm.$valid && addressctrl.addNewContact() " class="clearfix " id="daform">
       <div class="col-xs-3">
         <input type="text" class="form-control" ng-model="addressctrl.newContact.name" placeholder="Name" required/>
       </div>
@@ -20,23 +20,23 @@
       <input type="text" class="form-control" placeholder="Address" ng-model="addressctrl.newContact.address"/>
     </div>
     <div class="col-xs-3">
-      <input type="number" class="form-control" placeholder="Number" ng-model="addressctrl.newContact.number"/>
+            <input type="text" class="form-control" pattern="^(\d{7}|\d{10})$" placeholder="Number" ng-model="addressctrl.newContact.number"/>
     </div>
       <input type="submit" value="Add Contact" ng-disabled="myForm.$invalid" class="btn btn-primary col-xs-2" ></input>
     </form>
-  <table class="table-striped myT">
+  <table class="table-striped myT container-fluid text-center">
     <thead>
       <tr>
-        <th>Contact Name:</th>
-        <th>Address:</th>
-        <th>Number:</th>
-        <th>Remove Contact: </th>
+        <th class="col-xs-3">Contact Name:</th>
+        <th class="col-xs-3">Address:</th>
+        <th class="col-xs-3">Number:</th>
+        <th class="col-xs-3">Remove Contact: </th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="contact in addressctrl.contacts">
-        <td>{{contact.name}}</td>
-        <td>{{contact.address}}</td>
+        <td class="text-left">{{contact.name}}</td>
+        <td class="text-left">{{contact.address}}</td>
         <td>{{contact.number}}</td>
         <td><button ng-click="addressctrl.removeContact(contact)" class="btn btn-default">remove</button></td>
       </tr>
