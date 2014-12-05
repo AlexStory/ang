@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en-US" ng-app="myTodoApp">
 <head>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,15 +10,21 @@
 </head>
 <body>
 
-  <div class="container" ng-controller="TodoController as todoctrl">
+  <div class="container-fluid text-center" ng-controller="TodoController as todoctrl">
     <h1>My Todos</h1>
-    <form>
-      <label>Name</label><input type="text" ng-model="todoctrl.newTask.name"/>
-      <label>Descriptione</label><input type="text" ng-model="todoctrl.newTask.desc" />
-      <label>Due Date</label><input type="date" ng-model="todoctrl.newTask.due" />
-      <button ng-click="todoctrl.addNewTask()">Add Task</button>
+    <form name="myForm" novalidate ng-submit="myForm.$valid && todoctrl.addNewTask()" class="clearfix " id="daform">
+      <div class="col-xs-3">
+        <input type="text" class="form-control" ng-model="todoctrl.newTask.name" placeholder="Name" required/>
+      </div>
+      <div class="col-xs-3">
+      <input type="text" class="form-control" placeholder="Description" ng-model="todoctrl.newTask.desc" required/>
+    </div>
+    <div class="col-xs-4">
+      <input type="date" class="form-control" ng-model="todoctrl.newTask.due" required/>
+    </div>
+      <input type="submit" value="Add Task" ng-disabled="myForm.$invalid" class="btn btn-primary"></input>
     </form>
-  <table>
+  <table class="table-striped myT">
     <thead>
       <tr>
         <th>Task Name:</th>
@@ -29,14 +37,15 @@
       <tr ng-repeat="task in todoctrl.tasks">
         <td>{{task.name}}</td>
         <td>{{task.desc}}</td>
-        <td>{{task.due}}</td>
-        <td><button ng-click="todoctrl.removeTodo(task)">remove</button></td>
+        <td>{{task.due | date}}</td>
+        <td><button ng-click="todoctrl.removeTodo(task)" class="btn btn-default">remove</button></td>
       </tr>
     </tbody>
   </table>
 </div>
-
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
