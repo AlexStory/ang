@@ -1,0 +1,37 @@
+<table class="table-striped container-fluid text-center t2">
+  <tr>
+    <td>
+      <input type="text" class="form-control" ng-model="newName.name" ng-show="show.editname" placeholder="{{show.contact.name}}"/>
+      <span ng-show="!show.editname">Name: {{show.contact.name}}</span>
+    </td>
+    <td>
+      <a class="btn btn-info pull-right" ng-click="show.edit(show.contact.name, newName)" ng-show="show.editname">Submit</a>
+      <a class="btn btn-info pull-right" ng-click="show.toggle('name')">Edit</a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="text" class="form-control" ng-model="newName.address" ng-show="show.editaddress" placeholder="{{show.contact.address}}"/>
+      <span ng-show="!show.editaddress">Address: {{show.contact.address}}</span>
+    </td>
+    <td>
+      <a class="btn btn-info pull-right" ng-click="show.edit(show.contact.address, newName)" ng-show="show.editaddress">Submit</a>
+      <a class="btn btn-info pull-right" ng-click="show.toggle('address')">Edit</a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type="text" class="form-control" pattern="^(\d{7}|\d{10})$"      ng-model="newName.number" ng-show="show.editnumber" placeholder="{{show.contact.number}}"/>
+      <span ng-show="!show.editnumber">Number: {{show.contact.number}}</span>
+    </td>
+    <td>
+      <a class="btn btn-info pull-right" ng-click="show.edit(show.contact.number, newName)" ng-show="show.editnumber">Submit</a>
+      <a class="btn btn-info pull-right " ng-click="show.toggle('number')">Edit</a>
+    </td>
+  </tr>
+  <tr>
+    <td class="text-center">
+      <a class="btn btn-danger" ng-click="show.remove()">Remove Contact</a>
+    </td>
+  </tr>
+</table>

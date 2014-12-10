@@ -1,0 +1,19 @@
+<table class="table-striped myT container-fluid text-center">
+  <thead>
+    <tr>
+      <th class="col-xs-3">Contact Name:</th>
+      <th class="col-xs-3">Address:</th>
+      <th class="col-xs-3">Number:</th>
+      <th class="col-xs-3">Remove Contact: </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="(contactId, contact) in addressctrl.contacts | orderBy :'contact.name'">
+      <td class="text-left">{{contact.name}}</td>
+      <td class="text-left">{{contact.address}}</td>
+      <td>{{contact.number}}</td>
+      <td><button ng-click="addressctrl.removeContact(contactId)" class="btn btn-danger">remove</button>
+      <a class="btn btn-info" href="/#/contact/{{contactId}}">View</a></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,12 @@
+<form name="myForm" novalidate ng-submit="myForm.$valid && addressctrl.addNewContact() " class="clearfix daform">
+  <div class="col-xs-3">
+    <input type="text" class="form-control" ng-model="addressctrl.newContact.name" placeholder="Name" required/>
+  </div>
+  <div class="col-xs-3">
+    <input type="text" class="form-control" placeholder="Address" ng-model="addressctrl.newContact.address"/>
+  </div>
+  <div class="col-xs-3">
+    <input type="text" class="form-control" pattern="^(\d{7}|\d{10})$" placeholder="Number" ng-model="addressctrl.newContact.number"/>
+  </div>
+    <input type="submit" value="Add Contact" ng-disabled="myForm.$invalid" class="btn btn-primary col-xs-2" >
+</form>

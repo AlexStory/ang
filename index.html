@@ -1,51 +1,24 @@
 <!doctype html>
 <html lang="en-US" ng-app="myAddressBook">
-<head>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/main.css">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Awesome Address Book</title>
-</head>
-<body>
-
-  <div class="container-fluid text-center" ng-controller="AddressController as addressctrl">
-    <h1>My Awesome Address Book</h1>
-    <form name="myForm" novalidate ng-submit="myForm.$valid && addressctrl.addNewContact() " class="clearfix " id="daform">
-      <div class="col-xs-3">
-        <input type="text" class="form-control" ng-model="addressctrl.newContact.name" placeholder="Name" required/>
-      </div>
-      <div class="col-xs-3">
-      <input type="text" class="form-control" placeholder="Address" ng-model="addressctrl.newContact.address"/>
+  <head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Awesome Address Book</title>
+  </head>
+  <body>
+    <div class="container-fluid text-center">
+      <h1>My Awesome Address Book</h1>
+      <a class="btn btn-primary" href="/#/new">Add Contact</a>
+      <a class="btn btn-primary" href="/#/">Contacts</a>
+      <div ng-view ></div>
     </div>
-    <div class="col-xs-3">
-            <input type="text" class="form-control" pattern="^(\d{7}|\d{10})$" placeholder="Number" ng-model="addressctrl.newContact.number"/>
-    </div>
-      <input type="submit" value="Add Contact" ng-disabled="myForm.$invalid" class="btn btn-primary col-xs-2" ></input>
-    </form>
-  <table class="table-striped myT container-fluid text-center">
-    <thead>
-      <tr>
-        <th class="col-xs-3">Contact Name:</th>
-        <th class="col-xs-3">Address:</th>
-        <th class="col-xs-3">Number:</th>
-        <th class="col-xs-3">Remove Contact: </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="contact in addressctrl.contacts">
-        <td class="text-left">{{contact.name}}</td>
-        <td class="text-left">{{contact.address}}</td>
-        <td>{{contact.number}}</td>
-        <td><button ng-click="addressctrl.removeContact(contact)" class="btn btn-default">remove</button></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="bower_components/angular/angular.min.js"></script>
-  <script src="js/main.js"></script>
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
