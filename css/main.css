@@ -1,28 +1,39 @@
+/* line 2, /home/alex/Dropbox/NSS/ang/css/main.sass */
 .container-fluid {
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  max-width: 960px; }
 
+/* line 6, /home/alex/Dropbox/NSS/ang/css/main.sass */
 .daform {
   display: inline-block;
   margin: 0 auto; }
 
+/* line 9, /home/alex/Dropbox/NSS/ang/css/main.sass */
 .myT {
   margin: 0 auto;
   margin-top: 15px; }
 
+/* line 12, /home/alex/Dropbox/NSS/ang/css/main.sass */
 .address {
   text-align: left; }
 
+/* line 14, /home/alex/Dropbox/NSS/ang/css/main.sass */
 .t2 {
   font-size: 1.25em; }
 
+/* line 16, /home/alex/Dropbox/NSS/ang/css/main.sass */
 .btn {
   margin-bottom: 5px; }
 
+/* line 18, /home/alex/Dropbox/NSS/ang/css/main.sass */
 tr {
   text-align: left; }
 
+/* line 20, /home/alex/Dropbox/NSS/ang/css/main.sass */
 td {
   padding-right: 10px; }
 
-/*# sourceMappingURL=main.css.map */
+/* line 22, /home/alex/Dropbox/NSS/ang/css/main.sass */
+body {
+  background: green; }
